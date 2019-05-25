@@ -1,0 +1,40 @@
+version: '2'
+services:
+  gateway-app:
+    image: gateway
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - JHIPSTER_SLEEP=10
+    ports:
+      - '8080:8080'
+
+  uaa-app:
+    image: uaa
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - 'SPRING_DATASOURCE_URL=jdbc:mysql://uaa-mysql:3306/uaa?useUnicode=true&characterEncoding=utf8&useSSL=false'
+      - JHIPSTER_SLEEP=10
+  uaa-mysql:
+    image: 'mysql:8.0.16'
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=uaa
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+
+  consul:
+    extends:
+      file: consul.yml
+      service: consul
+  consul-config-loader:
+    extends:
+      file: consul.yml
+      service: consul-config-loader

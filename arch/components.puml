@@ -1,0 +1,52 @@
+@startuml
+
+
+node "Consul" {
+    [Registration & Discovery]
+}
+
+node "Gateway" {
+    [ZuulRouter]
+}
+
+node "UAA" {
+    [UAA Component]
+}
+
+
+database "Service_A_DB" {
+}
+
+node "Service_A" {
+    [Service_A_ConsulClient]
+    [Service_A_Resource] -down-> [Service_A_Component]
+    [Service_A_Resource] -down-> [Service_A_Repository]
+    [Service_A_Repository] -down-> Service_A_DB
+}
+
+database "Service_B_DB" {
+}
+
+node "Service_B" {
+    [Service_B_ConsulClient]
+    [Service_B_Resource] -down-> [Service_B_Repository]
+    [Service_B_Repository] -down-> Service_B_DB
+}
+
+UAA_HTTP -down- [UAA Component]
+Service_A_HTTP -down- [Service_A_Resource]
+Service_B_HTTP -down- [Service_B_Resource]
+
+[ZuulRouter] <-down-> [Registration & Discovery]
+[UAA Component] -up-> [Registration & Discovery]
+[Service_A_ConsulClient] --> [Registration & Discovery]
+[Service_B_ConsulClient] --> [Registration & Discovery]
+
+Gateway_HTTP -down-> [ZuulRouter]
+[ZuulRouter] -down-> UAA_HTTP
+[ZuulRouter] -down-> Service_A_HTTP
+[ZuulRouter] -down-> Service_B_HTTP
+[Service_A_Component] -down-> Service_B_HTTP
+
+
+@enduml
