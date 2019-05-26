@@ -11,6 +11,14 @@ import { RouterModule } from '@angular/router';
       {
         path: 'entityb',
         loadChildren: './serviceb/entityb/entityb.module#ServicebEntitybModule'
+      },
+      {
+        path: 'entitya',
+        loadChildren: './servicea/entitya/entitya.module#ServiceaEntityaModule'
+      },
+      {
+        path: 'entityb',
+        loadChildren: './serviceb/entityb/entityb.module#ServicebEntitybModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
