@@ -1,0 +1,4 @@
+entity EntityB {
+	id  Integer,
+    name  String
+}

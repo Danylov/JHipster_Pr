@@ -5,18 +5,17 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Entitya.
+ * A EntityA.
  */
 @Entity
-@Table(name = "entitya")
+@Table(name = "entity_a")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Entitya implements Serializable {
+public class EntityA implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,8 +23,7 @@ public class Entitya implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -41,7 +39,7 @@ public class Entitya implements Serializable {
         return name;
     }
 
-    public Entitya name(String name) {
+    public EntityA name(String name) {
         this.name = name;
         return this;
     }
@@ -56,10 +54,10 @@ public class Entitya implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Entitya)) {
+        if (!(o instanceof EntityA)) {
             return false;
         }
-        return id != null && id.equals(((Entitya) o).id);
+        return id != null && id.equals(((EntityA) o).id);
     }
 
     @Override
@@ -69,7 +67,7 @@ public class Entitya implements Serializable {
 
     @Override
     public String toString() {
-        return "Entitya{" +
+        return "EntityA{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
             "}";

@@ -2,6 +2,8 @@
   "generator-jhipster": {
     "appsFolders": [
       "gateway",
+      "servicea",
+      "serviceb",
       "uaa"
     ],
     "directoryPath": "../",

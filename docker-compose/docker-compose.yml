@@ -12,6 +12,40 @@ services:
     ports:
       - '8080:8080'
 
+  servicea-app:
+    image: servicea
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - 'SPRING_DATASOURCE_URL=jdbc:mysql://servicea-mysql:3306/servicea?useUnicode=true&characterEncoding=utf8&useSSL=false'
+      - JHIPSTER_SLEEP=10
+  servicea-mysql:
+    image: 'mysql:8.0.16'
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=servicea
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+
+  serviceb-app:
+    image: serviceb
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod,swagger'
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://serviceb-postgresql:5432/serviceb'
+      - JHIPSTER_SLEEP=10
+  serviceb-postgresql:
+    image: 'postgres:11.2'
+    environment:
+      - POSTGRES_USER=serviceb
+      - POSTGRES_PASSWORD=
+
   uaa-app:
     image: uaa
     environment:

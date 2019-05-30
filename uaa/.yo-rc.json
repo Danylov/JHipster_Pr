@@ -27,6 +27,7 @@
     "otherModules": [],
     "enableTranslation": false,
     "clientPackageManager": "npm",
-    "skipClient": true
+    "skipClient": true,
+    "enableHibernateCache": false
   }
 }

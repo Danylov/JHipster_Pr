@@ -5,20 +5,12 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forChild([
       {
-        path: 'entitya',
-        loadChildren: './servicea/entitya/entitya.module#ServiceaEntityaModule'
+        path: 'entity-a',
+        loadChildren: './servicea/entity-a/entity-a.module#ServiceaEntityAModule'
       },
       {
-        path: 'entityb',
-        loadChildren: './serviceb/entityb/entityb.module#ServicebEntitybModule'
-      },
-      {
-        path: 'entitya',
-        loadChildren: './servicea/entitya/entitya.module#ServiceaEntityaModule'
-      },
-      {
-        path: 'entityb',
-        loadChildren: './serviceb/entityb/entityb.module#ServicebEntitybModule'
+        path: 'entity-b',
+        loadChildren: './serviceb/entity-b/entity-b.module#ServicebEntityBModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

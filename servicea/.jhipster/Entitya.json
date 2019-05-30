@@ -1,23 +1,20 @@
 {
-    "fluentMethods": true,
-    "clientRootFolder": "servicea",
-    "relationships": [],
+    "name": "EntityA",
     "fields": [
         {
             "fieldName": "name",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "String"
         }
     ],
+    "relationships": [],
     "changelogDate": "20190526084524",
+    "entityTableName": "entity_a",
     "dto": "no",
-    "searchEngine": false,
+    "pagination": "no",
     "service": "no",
-    "entityTableName": "entitya",
-    "databaseType": "sql",
     "jpaMetamodelFiltering": false,
-    "pagination": "pagination",
+    "fluentMethods": true,
+    "clientRootFolder": "servicea",
+    "applications": "*",
     "microserviceName": "servicea"
 }

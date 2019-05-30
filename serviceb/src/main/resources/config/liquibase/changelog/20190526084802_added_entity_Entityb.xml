@@ -8,15 +8,15 @@
 
 
     <!--
-        Added the entity Entityb.
+        Added the entity EntityB.
     -->
     <changeSet id="20190526084802-1" author="jhipster">
-        <createTable tableName="entityb">
+        <createTable tableName="entity_b">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
@@ -34,9 +34,9 @@
     -->
     <changeSet id="20190526084802-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/data/entityb.csv"
+                  file="config/liquibase/data/entity_b.csv"
                   separator=";"
-                  tableName="entityb"
+                  tableName="entity_b"
                   context="dev">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>

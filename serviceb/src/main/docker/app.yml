@@ -14,13 +14,13 @@ services:
     extends:
       file: postgresql.yml
       service: serviceb-postgresql
-#  consul:
-#    image: consul:1.4.4
-#    command: consul agent -dev -ui -client 0.0.0.0
-#    ports:
-#      - 8300:8300
-#      - 8500:8500
-#      - 8600:8600
+  consul:
+    image: consul:1.4.4
+    command: consul agent -dev -ui -client 0.0.0.0
+    ports:
+      - 8300:8300
+      - 8500:8500
+      - 8600:8600
 
   consul-config-loader:
     image: jhipster/consul-config-loader:v0.3.0
