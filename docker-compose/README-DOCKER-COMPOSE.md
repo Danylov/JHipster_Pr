@@ -15,7 +15,7 @@ Launch all your infrastructure by running: `docker-compose up -d`.
 - gateway (gateway application)
 - gateway's no database
 - servicea (microservice application)
-- servicea's mysql database
+- servicea's mariadb database
 - serviceb (microservice application)
 - serviceb's postgresql database
 - uaa (uaa application)

@@ -1,7 +1,8 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.mycompany.myapp"
+      "packageName": "com.mycompany.myapp",
+      "microservicePath": "D:\\U\\A_Yu\\Study\\Java\\_Idea\\HRC\\JHipster_Pr\\serviceb"
     },
     "jhipsterVersion": "6.0.0",
     "applicationType": "gateway",

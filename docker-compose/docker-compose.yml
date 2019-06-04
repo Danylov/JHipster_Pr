@@ -20,10 +20,10 @@ services:
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - 'SPRING_DATASOURCE_URL=jdbc:mysql://servicea-mysql:3306/servicea?useUnicode=true&characterEncoding=utf8&useSSL=false'
+      - 'SPRING_DATASOURCE_URL=jdbc:mariadb://servicea-mariadb:3306/servicea'
       - JHIPSTER_SLEEP=10
-  servicea-mysql:
-    image: 'mysql:8.0.16'
+  servicea-mariadb:
+    image: 'mariadb:10.4.4'
     environment:
       - MYSQL_USER=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes

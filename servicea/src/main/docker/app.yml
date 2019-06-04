@@ -8,13 +8,12 @@ services:
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-#      - SPRING_DATASOURCE_URL=jdbc:mysql://servicea-mysql:3306/servicea?useUnicode=true&characterEncoding=utf8&useSSL=false
-      - SPRING_DATASOURCE_URL=jdbc:mysql://servicea-mysql:3307/servicea?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://servicea-mariadb:3306/servicea
       - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
-  servicea-mysql:
+  servicea-mariadb:
     extends:
-      file: mysql.yml
-      service: servicea-mysql
+      file: mariadb.yml
+      service: servicea-mariadb
   consul:
     image: consul:1.4.4
     command: consul agent -dev -ui -client 0.0.0.0
