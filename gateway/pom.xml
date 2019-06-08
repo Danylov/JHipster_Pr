@@ -503,11 +503,11 @@
                             <image>gateway:latest</image>
                         </to>
                         <container>
-                            <entrypoint>
-                                <shell>sh</shell>
-                                <option>-c</option>
-                                <arg>chmod +x /entrypoint.sh &amp;&amp; sync &amp;&amp; /entrypoint.sh</arg>
-                            </entrypoint>
+<!--                            <entrypoint>-->
+<!--                                <shell>sh</shell>-->
+<!--                                <option>-c</option>-->
+<!--                                <arg>chmod +x /entrypoint.sh &amp;&amp; sync &amp;&amp; /entrypoint.sh</arg>-->
+<!--                            </entrypoint>-->
                             <ports>
                                 <port>8080</port>
                             </ports>

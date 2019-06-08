@@ -1,6 +1,8 @@
 package com.mycompany.myapp.web.rest;
 
+//import com.mycompany.myapp.client.ServicebClient;
 import com.mycompany.myapp.domain.Entitya;
+//import com.mycompany.myapp.domain.Entityb;
 import com.mycompany.myapp.repository.EntityaRepository;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+//import javax.annotation.Resource;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -24,6 +27,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class EntityaResource {
+
+//    @Resource
+//    private ServicebClient servicebClient;
 
     private final Logger log = LoggerFactory.getLogger(EntityaResource.class);
 
@@ -114,4 +120,34 @@ public class EntityaResource {
         entityaRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
+
+//    public ResponseEntity<Entityb> createEntityb(@RequestBody Entityb entityb)
+//    {
+//        ResponseEntity<Entityb>  REb = servicebClient.createEntityb(entityb);
+//        return  REb;
+//    }
+//
+//    public ResponseEntity<Entityb> updateEntityb(@RequestBody Entityb entityb)
+//    {
+//        ResponseEntity<Entityb> REb = servicebClient.updateEntityb(entityb);
+//        return  REb;
+//    }
+//
+//    public List<Entityb> getAllEntitybs()
+//    {
+//        List<Entityb>   LEb = servicebClient.getAllEntitybs();
+//        return  LEb;
+//    }
+//
+//    public ResponseEntity<Entityb> getEntityb(@PathVariable Long id)
+//    {
+//        ResponseEntity<Entityb>  REb = servicebClient.getEntityb(id);
+//        return  REb;
+//    }
+//
+//    public ResponseEntity<Void> deleteEntityb(@PathVariable Long id)
+//    {
+//        ResponseEntity<Void>  DEb = servicebClient.deleteEntityb(id);
+//        return  DEb;
+//    }
 }
